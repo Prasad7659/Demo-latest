@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--map trail start-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <!--map trail end-->
 </head>
 <body>
+    <button id="scrollToTopBtn" title="Go to top"><strong>↑</strong></button>
+    <a href="https://wa.me/9490278099?text=Hello%20there!" id="whatsappBtn" target="_blank"></a>
     <div class="Header">
         <div id="Header1" class="Header1">
             <i id="phone" class="fa fa-phone"></i>
@@ -21,7 +29,7 @@
         <div id="Header2" class="Header2">
             <div id="fl" class="fl">
                 <span class="hamburger" onclick="toggleNav()">&#9776;</span>
-                <strong class="contactinfo" onclick="copyToClipboard('9490278099')"><i class="fa fa-phone"></i>+91-9490278099</strong>
+                <strong id="phoneLink" class="contactinfo" onclick="copyToClipboard('9490278099')"><i class="fa fa-phone"></i>+91-9490278099</strong>
                 <strong class="contactinfomail"><i class="fa fa-envelope-square"></i><a class="contactinfomail" href="mailto:pkrupavara@gmail.com?subject=Hello&body=this is test mail">pkrupavara@gmail.com</a></strong>
                 <strong class="mainhead">Land Surveyors</strong>
                 <strong class="login">Login</strong>
@@ -238,6 +246,55 @@
                 <button type="submit">Submit</button>
             </form>
         </section>
+        <!--Demo  on maps and contact form-->
+        <div class="cs">
+            <div class="row">
+                <div class="col col-12 col-lg-6">
+                    <div>
+                        <h2 style="text-align: center;">Office Location</h2>
+                        <div id="map">
+                            <!-- Get Directions Button -->
+                            <button class="custom-btn directions" onclick="getDirections()">📍 Get Directions</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-6">
+                    <section id="contactsection" class="contactsection">
+                        <h2>Contact Us</h2>
+                        <form id="contactForm" class="contact-form" action="https://formspree.io/f/mnnpnlry"
+                        method="POST" autocomplete="off">
+                            <div class="form-group">
+                                <label for="firstName">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number:</label>
+                                <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number" pattern="[0-9]{10}">
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="Message">Message:</label>
+                                <textarea id="Message" name="Message" rows="4" cols="50" placeholder="Service Request"></textarea>
+                            </div>
+                            
+                            <button type="submit">Submit</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="SideNav" class="SideNav">
 
